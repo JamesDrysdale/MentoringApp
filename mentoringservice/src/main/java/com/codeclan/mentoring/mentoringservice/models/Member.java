@@ -13,14 +13,18 @@ public class Member {
     @Column(name="full_name")
     private String fullName;
 
+    @Column(name="email")
+    private String email;
+
     @Column(name="bio")
     private String bio;
 
     @Column(name="linkedin")
     private String linkedIn;
 
-    public Member(String fullName, String bio, String linkedIn) {
+    public Member(String fullName, String email, String bio, String linkedIn) {
         this.fullName = fullName;
+        this.email = email;
         this.bio = bio;
         this.linkedIn = linkedIn;
     }
@@ -41,6 +45,14 @@ public class Member {
 
     public void setName(String newName) {
         fullName = newName;
+    }
+
+    public String getEmail() {
+        return this.email;
+    }
+
+    public void setEmail(String newEmail) {
+        email = newEmail;
     }
 
     public String getBio() {

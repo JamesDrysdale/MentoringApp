@@ -1,3 +1,5 @@
+package com.codeclan.mentoring.mentoringservice;
+
 import com.codeclan.mentoring.mentoringservice.models.Member;
 import org.junit.Before;
 import org.junit.Test;
@@ -9,7 +11,7 @@ public class MemberTest {
 
     @Before
     public void setUp() {
-        dave = new Member("Dave McKenzie", "I am a Product Owner with an extensive background in QA testing", "/in/dave-mckenzie/");
+        dave = new Member("Dave McKenzie", "dave@mail.com", "I am a Product Owner with an extensive background in QA testing", "/in/dave-mckenzie/");
     }
 
     @Test
@@ -21,6 +23,17 @@ public class MemberTest {
     public void canUpdateMemberName() {
         dave.setName("Neil");
         assertEquals("Neil", dave.getName());
+    }
+
+    @Test
+    public void memberHasAnEmail() {
+        assertEquals("dave@mail.com", dave.getEmail());
+    }
+
+    @Test
+    public void memberCanUpdateEmail() {
+        dave.setEmail("davec@email.com");
+        assertEquals("davec@email.com", dave.getEmail());
     }
 
     @Test

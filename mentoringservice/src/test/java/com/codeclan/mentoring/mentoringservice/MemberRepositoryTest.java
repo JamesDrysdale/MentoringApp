@@ -1,3 +1,5 @@
+package com.codeclan.mentoring.mentoringservice;
+
 import com.codeclan.mentoring.mentoringservice.models.Member;
 import com.codeclan.mentoring.mentoringservice.repositories.MemberRepository;
 import org.junit.Test;
@@ -7,7 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = { MemberRepository.class })
+@SpringBootTest()
 public class MemberRepositoryTest {
 
     @Autowired
@@ -21,7 +23,7 @@ public class MemberRepositoryTest {
 
     @Test
     public void createSingleMemberAndSave() {
-        Member dave = new Member("Dave Martin", "Product Owner", "/in/dave");
+        Member dave = new Member("Dave Martin", "dave@email.com", "Product Owner", "/in/dave");
         memberRepository.save(dave);
     }
 }
