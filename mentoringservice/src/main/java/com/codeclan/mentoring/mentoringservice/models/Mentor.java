@@ -1,4 +1,10 @@
 package com.codeclan.mentoring.mentoringservice.models;
 
-public class Mentor {
+public class Mentor extends Member{
+
+    public Mentor(String fullName, String email, String bio, String linkedIn) {
+        super(fullName, email, bio, linkedIn);
+    }
+
+
 }
