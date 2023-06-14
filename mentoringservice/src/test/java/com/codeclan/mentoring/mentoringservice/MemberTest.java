@@ -1,60 +1,68 @@
 package com.codeclan.mentoring.mentoringservice;
 
 import com.codeclan.mentoring.mentoringservice.models.Member;
+import com.codeclan.mentoring.mentoringservice.models.Mentor;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
 public class MemberTest {
-    Member dave;
+    Member mentee;
+    Member mentor;
 
     @Before
     public void setUp() {
-        dave = new Member("Dave McKenzie", "dave@mail.com", "I am a Product Owner with an extensive background in QA testing", "/in/dave-mckenzie/");
+        mentee = new Member("Dave McKenzie", "dave@mail.com", "I am a Product Owner with an extensive background in QA testing", "/in/dave-mckenzie/", false);
+        mentor = new Mentor("James", "james@email.com", "Instructor and mentor", "/in/james", true);
     }
 
     @Test
     public void memberHasAName() {
-        assertEquals("Dave McKenzie", dave.getName());
+        assertEquals("Dave McKenzie", mentee.getName());
     }
 
     @Test
     public void canUpdateMemberName() {
-        dave.setName("Neil");
-        assertEquals("Neil", dave.getName());
+        mentee.setName("Neil");
+        assertEquals("Neil", mentee.getName());
     }
 
     @Test
     public void memberHasAnEmail() {
-        assertEquals("dave@mail.com", dave.getEmail());
+        assertEquals("dave@mail.com", mentee.getEmail());
     }
 
     @Test
     public void memberCanUpdateEmail() {
-        dave.setEmail("davec@email.com");
-        assertEquals("davec@email.com", dave.getEmail());
+        mentee.setEmail("davec@email.com");
+        assertEquals("davec@email.com", mentee.getEmail());
     }
 
     @Test
     public void memberHasABio() {
-        assertEquals("I am a Product Owner with an extensive background in QA testing", dave.getBio());
+        assertEquals("I am a Product Owner with an extensive background in QA testing", mentee.getBio());
     }
 
     @Test
     public void canUpdateBio() {
-        dave.setBio("Product Owner");
-        assertEquals("Product Owner", dave.getBio());
+        mentee.setBio("Product Owner");
+        assertEquals("Product Owner", mentee.getBio());
     }
 
     @Test
     public void memberHasALinkedInLink() {
-        assertEquals("/in/dave-mckenzie/", dave.getLinkedIn());
+        assertEquals("/in/dave-mckenzie/", mentee.getLinkedIn());
     }
 
     @Test
     public void canUpdateLinkedIn() {
-        dave.setLinkedIn("/in/neil-mckenzie");
-        assertEquals("/in/neil-mckenzie", dave.getLinkedIn());
+        mentee.setLinkedIn("/in/neil-mckenzie");
+        assertEquals("/in/neil-mckenzie", mentee.getLinkedIn());
+    }
+
+    @Test
+    public void memberCanBeMenteeButNotMentor() {
+        assertEquals(false, mentee.getMentorStatus());
     }
 }

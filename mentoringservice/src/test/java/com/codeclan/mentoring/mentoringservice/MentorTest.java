@@ -12,7 +12,7 @@ public class MentorTest {
 
     @Before
     public void setUp() {
-        james = new Mentor("James Drysdale", "james@email.com", "Software development instructor", "/in/james-drysdale");
+        james = new Mentor("James Drysdale", "james@email.com", "Software development instructor", "/in/james-drysdale", true);
     }
 
     @Test
@@ -57,6 +57,11 @@ public class MentorTest {
     public void canSetMentorLinkedIn() {
         james.setLinkedIn("/in/jd");
         assertEquals("/in/jd", james.getLinkedIn());
+    }
+
+    @Test
+    public void memberCanBeAMentor(){
+        assertEquals(true, james.getMentorStatus());
     }
 
 }

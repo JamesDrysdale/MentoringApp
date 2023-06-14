@@ -1,6 +1,7 @@
 package com.codeclan.mentoring.mentoringservice;
 
 import com.codeclan.mentoring.mentoringservice.models.Member;
+import com.codeclan.mentoring.mentoringservice.models.Mentor;
 import com.codeclan.mentoring.mentoringservice.repositories.MemberRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,15 +16,21 @@ public class MemberRepositoryTest {
     @Autowired
     MemberRepository memberRepository;
 
+//    @Test
+//    public void contextLoads() {
+//        //ONLY used to clear the DB for testing purposes. Do not use in production code
+//        memberRepository.deleteAll();
+//    }
+
     @Test
-    public void contextLoads() {
-        //ONLY used to clear the DB for testing purposes. Do not use in production code
-        memberRepository.deleteAll();
+    public void createSingleMenteeAndSave() {
+        Member mentee = new Member("Claire", "claire@email.com", "Marketing Expert", "/in/claire", false);
+        memberRepository.save(mentee);
     }
 
     @Test
-    public void createSingleMemberAndSave() {
-        Member dave = new Member("Dave Martin", "dave@email.com", "Product Owner", "/in/dave");
-        memberRepository.save(dave);
+    public void createSingleMentorAndSave() {
+        Member mentor = new Member("James Drysdale", "james@email.com", "Software development instructor", "/in/james-drysdale", true);
+        memberRepository.save(mentor);
     }
 }
