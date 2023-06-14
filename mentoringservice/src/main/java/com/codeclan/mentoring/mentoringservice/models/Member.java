@@ -2,6 +2,7 @@ package com.codeclan.mentoring.mentoringservice.models;
 
 import jakarta.persistence.*;
 
+
 @Entity
 @Table(name="members")
 public class Member {
@@ -22,14 +23,21 @@ public class Member {
     @Column(name="linkedin")
     private String linkedIn;
 
-    public Member(String fullName, String email, String bio, String linkedIn) {
+    @Column(name="is_mentor")
+    private Boolean isMentor;
+
+
+    public Member(String fullName, String email, String bio, String linkedIn, Boolean isMentor) {
         this.fullName = fullName;
         this.email = email;
         this.bio = bio;
         this.linkedIn = linkedIn;
+        this.isMentor = isMentor;
     }
 
     public Member () {}
+
+    // GETTERS AND SETTERS
 
     public Long getId() {
         return id;
@@ -56,7 +64,7 @@ public class Member {
     }
 
     public String getBio() {
-        return bio;
+        return this.bio;
     }
 
     public void setBio(String newBio) {
@@ -64,10 +72,18 @@ public class Member {
     }
 
     public String getLinkedIn() {
-        return  linkedIn;
+        return  this.linkedIn;
     }
 
     public void setLinkedIn(String newLinkedIn) {
         linkedIn = newLinkedIn;
+    }
+
+    public Boolean getMentorStatus() {
+        return this.isMentor;
+    }
+
+    public void setMentorStatus(Boolean mentorStatus) {
+        isMentor = mentorStatus;
     }
 }
