@@ -2,40 +2,36 @@ package com.codeclan.mentoring.mentoringservice.models;
 
 import jakarta.persistence.*;
 
-
 @Entity
-@Table(name="members")
-public class Member {
+@Inheritance(strategy = InheritanceType.JOINED)
+public abstract class Member {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "member_id")
     private Long id;
 
-    @Column(name="full_name")
+    @Column(name = "full_name")
     private String fullName;
 
-    @Column(name="email")
+    @Column(name = "email")
     private String email;
 
-    @Column(name="bio")
+    @Column(name = "bio")
     private String bio;
 
-    @Column(name="linkedin")
+    @Column(name = "linkedin")
     private String linkedIn;
 
-    @Column(name="is_mentor")
-    private Boolean isMentor;
+    public Member(String fullName, String email, String bio, String linkedIn) {
 
-
-    public Member(String fullName, String email, String bio, String linkedIn, Boolean isMentor) {
         this.fullName = fullName;
         this.email = email;
         this.bio = bio;
         this.linkedIn = linkedIn;
-        this.isMentor = isMentor;
     }
 
-    public Member () {}
+    public Member () {};
 
     // GETTERS AND SETTERS
 
@@ -77,13 +73,5 @@ public class Member {
 
     public void setLinkedIn(String newLinkedIn) {
         linkedIn = newLinkedIn;
-    }
-
-    public Boolean getMentorStatus() {
-        return this.isMentor;
-    }
-
-    public void setMentorStatus(Boolean mentorStatus) {
-        isMentor = mentorStatus;
     }
 }
