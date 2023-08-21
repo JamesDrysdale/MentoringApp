@@ -1,6 +1,6 @@
 # Mentoring App
 
-## Introduction
+## Description
 
 The goal is to build a mentoring app that will allow end-users looking for mentoring to connect with experienced mentors.
 
